@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8080/register", formData);
+      const response = await axios.post("https://employeecrud-2.onrender.com/register", formData);
       console.log("Registered successfully:", response.data);
       alert("🎉 Registration successful!");
       setFormData({ name: "", email: "", password: "" });
@@ -95,9 +96,9 @@ function Register() {
 
         <p className="text-sm text-gray-500 text-center mt-4">
           Already have an account?{" "}
-          <a href="/login" className="text-indigo-600 hover:underline font-medium">
+          <Link to={'/login'} className="text-indigo-600 hover:underline font-medium">
             Login here
-          </a>
+          </Link>
         </p>
       </div>
     </div>

@@ -6,10 +6,10 @@ function EmployeeDashboard() {
   const [employees, setEmployees] = useState([]);
   const navigate = useNavigate(); // ✅ Correct usage
 
-  // Fetch employees
+  // Fetch employees (here we gave the link of the api that is already deplyoed on the server)
   useEffect(() => {
     axios
-      .get("http://localhost:8080/getAll")
+      .get("https://employeecrud-2.onrender.com/getAll")
       .then((response) => setEmployees(response.data))
       .catch(() =>
         console.error("Something went wrong while fetching employees.")
@@ -19,7 +19,7 @@ function EmployeeDashboard() {
   // Delete employee
   const deleteEmployee = (id) => {
     axios
-      .delete(`http://localhost:8080/delete?id=${id}`)
+      .delete(`https://employeecrud-2.onrender.com/delete?id=${id}`)
       .then((response) => {
         if (response.data === true) {
           alert("Employee deleted successfully!");

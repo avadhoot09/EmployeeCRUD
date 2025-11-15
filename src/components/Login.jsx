@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
@@ -14,7 +14,7 @@ function Login() {
   const login = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/login", loginForm)
+      .post("https://employeecrud-2.onrender.com/login", loginForm)
       .then((res) => {
         if (res.data) {
           navigate("/dashboard");
@@ -83,12 +83,12 @@ function Login() {
 
         <p className="text-center text-blue-100 text-sm mt-4">
           Don’t have an account?{" "}
-          <a
-            href="/register"
+          <Link
+            to={'/register'}
             className="text-white underline hover:text-blue-200 transition"
           >
             Register
-          </a>
+          </Link>
         </p>
       </form>
     </div>

@@ -15,7 +15,7 @@ function EmployeeProfile() {
   // Fetch employee details by ID (this is nothing but the input handler)
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/getById?id=${id}`)
+      .get(`https://employeecrud-2.onrender.com/getById?id=${id}`)
       .then((response) => setEmployee(response.data))
       .catch(() => alert("Error fetching employee details."));
   }, [id]);
@@ -29,7 +29,7 @@ function EmployeeProfile() {
   // Update employee data
   const handleUpdate = () => {
     axios
-      .put("http://localhost:8080/update", employee)
+      .put("https://employeecrud-2.onrender.com/update", employee)
       .then((response) => {
         alert("Employee updated successfully!");
         navigate("/"); // ✅ redirect back to dashboard
